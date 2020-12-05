@@ -10,24 +10,31 @@ import string
 import random
 import array as arr
 
-# 1) Recieve user's input of how long he/she wants the password to be
-# 2) Create an empty array
+# List of all the allowed characters in the password
 
-print(string.ascii_lowercase)
 
-password = arr.array('u')
+# All the variables
 
-pwd_length = input("How many characters will your password have?:\n")
-
+all_char = string.ascii_letters + string.digits + string.punctuation
+pwd_length = 0
 
 # Verification
 
-if pwd_length.isnumeric():
-    pwd_length = int(pwd_length)
-    pwd_list = random.choices(string.ascii_lowercase, k = pwd_length)
 
-    print('Your password is:',''.join(x for x in pwd_list))
+while pwd_length < 6:
 
-else:
-    print("Please enter an integer number")
+    try:
+        pwd_length = int(input("How many characters will your password have?:\n"))
+        if pwd_length >= 6:
+
+            pwd_list = random.choices(all_char, k = pwd_length)
+
+            print('Your password is:',''.join(x for x in pwd_list))
+            break
+    
+        else:
+            print('It should be greater than 6 digits!')
+
+    except:
+        print("Please enter an integer number")
 
