@@ -5,7 +5,7 @@
     The password should be a minimum of 6 characters long.
 """ 
 import string 
-import random 
+import random
 import array as arr 
 
 # All the variables
@@ -16,18 +16,18 @@ pwd_length = 0
 
 # Verification
 
-while pwd_length < 6:
-    
+while pwd_length < 6 or pwd_length > 1000:
+
     try:
         pwd_length = int(input("How many characters will your password have?:\n"))
-        if pwd_length >= 6: 
+        if pwd_length >= 6 and pwd_length100 <= 1000: 
 
             pwd_list = random.choices(all_char, k = pwd_length) 
 
             print('Your password is:',''.join(x for x in pwd_list))
-        else:
-            print('It should be greater than 6 digits!') 
 
+        else:
+            print('It should be GREATER than 6 digits and LOWER than 1000 characters!') 
     except:
         
         print("Please enter an integer number") 
